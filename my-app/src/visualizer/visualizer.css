@@ -1,11 +1,23 @@
+.sorting-visualizer-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .array-container {
-    position: absolute;
-    left: 100px;
-    /* top: 100px; */
-  }
-  
-  .array-bar {
-    width: 2px;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 20px;
+}
+
+.array-bar {
+    width: 4px;
     display: inline-block;
     margin: 0 1px;
-  }
+}
