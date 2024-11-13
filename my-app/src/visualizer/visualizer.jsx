@@ -30,6 +30,7 @@ export default class SortingVisualizer extends React.Component {
   }
 
   mergeSort() {
+    if (this.state.isSorting) return;
     this.setState({ isSorting: true });
     const animations = getMergeSortAnimations(this.state.array);
     for (let i = 0; i < animations.length; i++) {
@@ -56,6 +57,7 @@ export default class SortingVisualizer extends React.Component {
   }
 
   quickSort() {
+    if (this.state.isSorting) return;
     this.setState({ isSorting: true });
     const animations = getQuickSortAnimations(this.state.array);
     for (let i = 0; i < animations.length; i++) {
@@ -80,6 +82,7 @@ export default class SortingVisualizer extends React.Component {
   }
 
   heapSort() {
+    if (this.state.isSorting) return;
     this.setState({ isSorting: true });
     const animations = getHeapSortAnimations(this.state.array);
     for (let i = 0; i < animations.length; i++) {
@@ -104,6 +107,7 @@ export default class SortingVisualizer extends React.Component {
   }
 
   bubbleSort() {
+    if (this.state.isSorting) return;
     this.setState({ isSorting: true });
     const animations = getBubbleSortAnimations(this.state.array);
     for (let i = 0; i < animations.length; i++) {
@@ -140,10 +144,30 @@ export default class SortingVisualizer extends React.Component {
           >
             Generate New Array
           </button>
-          <button onClick={() => this.mergeSort()}>Merge Sort</button>
-          <button onClick={() => this.quickSort()}>Quick Sort</button>
-          <button onClick={() => this.heapSort()}>Heap Sort</button>
-          <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
+          <button 
+            onClick={() => this.mergeSort()}
+            disabled={isSorting}
+            style={{ backgroundColor: isSorting ? 'grey' : 'initial' }}
+          >Merge Sort</button>
+
+          <button 
+            onClick={() => this.quickSort()}
+            disabled={isSorting}
+            style={{ backgroundColor: isSorting ? 'grey' : 'initial' }}
+          >Quick Sort</button>
+
+          <button 
+            onClick={() => this.heapSort()}
+            disabled={isSorting}
+            style={{ backgroundColor: isSorting ? 'grey' : 'initial' }}
+          >Heap Sort</button>
+
+          <button 
+            onClick={() => this.bubbleSort()}
+            disabled={isSorting}
+            style={{ backgroundColor: isSorting ? 'grey' : 'initial' }}
+          >Bubble Sort</button>
+
         </div>
         <div className="array-container">
           {array.map((value, idx) => (
